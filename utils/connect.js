@@ -30,16 +30,19 @@ WebDavMount.prototype.mount = function( path ) {
 // Desmonta o path recebido por parâmetro
 WebDavMount.prototype.umount = function( path ) {
 	var self = this;
+	self.connected = true;
 	console.log( path ? 'desmontando ' + path : 'nome não passado' );
-	exec( 'umount ' + path, function( error, stdout, stderr ){
-		console.log( '----------------------------------error----------------------------------' );
-		console.log( error );
-		console.log( '----------------------------------stdout----------------------------------' );
-		console.log( stdout );
-		console.log( '----------------------------------stderr----------------------------------' );
-		console.log( stderr );
-		self.emit( 'desconectou', path );
-	});
+	while( self.connected ){
+		exec( 'umount ' + path, function( error, stdout, stderr ){
+			if ( error ) {
+				console.log( 'ERRO! Tentando desconectar novamente' );
+				// console.log( error );
+			} else {
+				self.connected = false;
+				self.emit( 'desconectou', path );
+			}
+		});
+	}
 }
 
 module.exports = new WebDavMount();
