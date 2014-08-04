@@ -1,0 +1,7 @@
+{
+	"config" : {
+		"from" : "path/to/mounted/servers",
+		"to" : "path/to/localserver/root",
+		"automount" : true
+	}
+}

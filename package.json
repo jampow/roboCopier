@@ -1,0 +1,28 @@
+{
+  "name": "roboCopier",
+  "version": "2.0.0",
+  "description": "Este projeto tem a intenção de copiar pastas e arquivos de algum servidor remoto pra pasta do seu servidor local, sendo fácil de configurar e de usar.",
+  "main": "roboCopier.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jampow/roboCopier.git"
+  },
+  "keywords": [
+    "copy",
+    "robot",
+    "robo",
+    "copiar"
+  ],
+  "author": "Gianpaulo M. Soares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jampow/roboCopier/issues"
+  },
+  "homepage": "https://github.com/jampow/roboCopier",
+  "devDependencies": {
+    "should": "^4.0.4"
+  }
+}
