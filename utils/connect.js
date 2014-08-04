@@ -16,33 +16,25 @@ WebDavMount.prototype.mount = function( path ) {
 	var self = this;
 	console.log( 'conectando a ' + path );
 	exec( 'mount ' + path, function( error, stdout, stderr ){
-		console.log( '----------------------------------error----------------------------------' );
-		console.log( error );
-		console.log( '----------------------------------stdout----------------------------------' );
-		console.log( stdout );
-		console.log( '----------------------------------stderr----------------------------------' );
-		console.log( stderr );
-
-		self.emit( 'conectou', path );
+		self.emit( 'mounted', path );
 	});
 }
 
 // Desmonta o path recebido por parâmetro
 WebDavMount.prototype.umount = function( path ) {
 	var self = this;
-	self.connected = true;
 	console.log( path ? 'desmontando ' + path : 'nome não passado' );
-	while( self.connected ){
+
+	var interval = setInterval( function(){
 		exec( 'umount ' + path, function( error, stdout, stderr ){
-			if ( error ) {
-				console.log( 'ERRO! Tentando desconectar novamente' );
-				// console.log( error );
+			if ( stderr ) {
+				console.log( 'ERRO! Tentando desconectar novamente...' );
 			} else {
-				self.connected = false;
-				self.emit( 'desconectou', path );
+				clearInterval( interval );
+				self.emit( 'unmounted', path );
 			}
 		});
-	}
+	}, 3000);
 }
 
 module.exports = new WebDavMount();
