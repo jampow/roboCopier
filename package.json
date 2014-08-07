@@ -25,5 +25,8 @@
   "homepage": "https://github.com/jampow/roboCopier",
   "devDependencies": {
     "should": "^4.0.4"
+  },
+  "dependencies": {
+    "fs-extra": "^0.10.0"
   }
 }
