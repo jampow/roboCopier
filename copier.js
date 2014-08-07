@@ -25,7 +25,7 @@ Copier.prototype.prepareDestinationPath = function( filePath ){
 		fse.mkdirsSync( path.dirname( filePath ) );
 }
 
-Copier.prototype.copyFile = function( from, to, callback ){
+Copier.prototype.copyFile = function( from, to ){
 	var self = this;
 
 	self.prepareDestinationPath( to );
