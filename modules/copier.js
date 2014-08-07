@@ -35,8 +35,6 @@ Copier.prototype.copyFile = function( from, to ){
 			self.emit( 'copyError', err );
 		else
 			self.emit( 'copySuccess', { "from": from, "to": to });
-
-		if ( callback ) callback( err, from, to );
 	})
 };
 

@@ -1,6 +1,6 @@
 var exec = require( 'child_process' ).exec;
 var fs = require( 'fs' );
-var copier = require( '../copier.js' );
+var copier = require( '../modules/copier.js' );
 var should = require( 'should' );
 var assert = require( 'assert');
 
@@ -16,9 +16,9 @@ exec( 'touch from/sitea/some/testa.txt from/sitea/some/testb.txt from/sitea/some
 exec( 'touch from/sitea/some/long/testa.txt from/sitea/some/long/testb.txt from/sitea/some/long/testc.txt from/siteb/some/long/testa.txt from/siteb/some/long/testb.txt from/siteb/some/long/testc.txt from/sitec/some/long/testa.txt from/sitec/some/long/testb.txt from/sitec/some/long/testc.txt' );
 exec( 'touch from/sitea/some/long/path1/testa.txt from/sitea/some/long/path1/testb.txt from/sitea/some/long/path1/testc.txt from/sitea/some/long/path2/testa.txt from/sitea/some/long/path2/testb.txt from/sitea/some/long/path2/testc.txt from/sitea/some/long/path3/testa.txt from/sitea/some/long/path3/testb.txt from/sitea/some/long/path3/testc.txt from/siteb/some/long/path1/testa.txt from/siteb/some/long/path1/testb.txt from/siteb/some/long/path1/testc.txt from/siteb/some/long/path2/testa.txt from/siteb/some/long/path2/testb.txt from/siteb/some/long/path2/testc.txt from/siteb/some/long/path3/testa.txt from/siteb/some/long/path3/testb.txt from/siteb/some/long/path3/testc.txt from/sitec/some/long/path1/testa.txt from/sitec/some/long/path1/testb.txt from/sitec/some/long/path1/testc.txt from/sitec/some/long/path2/testa.txt from/sitec/some/long/path2/testb.txt from/sitec/some/long/path2/testc.txt from/sitec/some/long/path3/testa.txt from/sitec/some/long/path3/testb.txt from/sitec/some/long/path3/testc.txt' );
 
-beforeEach( function(){
-	exec( 'rm -r to && mkdir to' );
-});
+// beforeEach( function(){
+// 	exec( 'rm -r to && mkdir to' );
+// });
 
 after( function(){
 	exec( 'rm -r from to' );
