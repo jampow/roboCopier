@@ -20,3 +20,4 @@ copia index.htm e volta nível a nível copiando todos os index.htm que encontra
 
 rc configx
 Copia uma lista pré-configurada. A lista é uma coleção de comandos como os acima descritos.
+ 
